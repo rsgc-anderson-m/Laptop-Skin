@@ -36,10 +36,14 @@ void draw () {
   if (ballY < 25 || ballY >475) {
     speedY = speedY*-1;
   }
+  
+  if (ballX < 25 || ballX > 475) {
+    speedX = speedX *-1;
+  }
 
 
-  background (#6797E8);
-  noStroke();
+  //background (#6797E8);
+  //noStroke();
   fill (360, 100, 100); 
   ellipse (ballX, ballY, 50, 50);
   // ellipse (ballX2, ballY2, 50, 50);
