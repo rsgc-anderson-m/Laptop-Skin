@@ -11,8 +11,15 @@ float ballY3;
 float ballX4;
 float ballY4;
 
-int speedY = 3; 
-int speedX = 3;
+float speedY = random (2, 3);
+float speedY2 = random (2, 3);
+float speedY3 = random (2, 3);
+float speedY4 = random (2, 3);
+
+float speedX = random (2, 3);
+float speedX2 = random (2, 3);
+float speedX3 = random (2, 3);
+float speedX4 = random (2, 3);
 
 
 void setup () {
@@ -42,17 +49,18 @@ void draw () {
 
 
   ballX = ballX + speedX;
+  ballY = ballY + speedY;
 
   println("Horizontal position is: " + ballX);
   println("speedX is: " + speedX);
 
-  ballY2 = ballY2 +speedY;
-  ballY3 = ballY3 +speedY;
-  ballY4 = ballY4 +speedY;
+  ballY2 = ballY2 +speedY2;
+  ballY3 = ballY3 +speedY3;
+  ballY4 = ballY4 +speedY4;
 
-  ballX2 = ballX2 + speedX;
-  ballX3 = ballX3 + speedX;
-  ballX4 = ballX4 + speedX;
+  ballX2 = ballX2 + speedX2;
+  ballX3 = ballX3 + speedX3;
+  ballX4 = ballX4 + speedX4;
 
 
 
@@ -64,25 +72,25 @@ void draw () {
     speedX = speedX *-1;
   }
   if (ballY2 < 25 || ballY2 >475) {
-    speedY = speedY*-1;
+    speedY2 = speedY2*-1;
   }
 
   if (ballX2 < 25 || ballX2 > 475) {
-    speedX = speedX *-1;
+    speedX2 = speedX2 *-1;
   }  
   if (ballY3 < 25 || ballY3 >475) {
-    speedY = speedY*-1;
+    speedY3 = speedY3*-1;
   }
 
   if (ballX3 < 25 || ballX3 > 475) {
-    speedX = speedX *-1;
+    speedX3 = speedX3 *-1;
   }  
   if (ballY4 < 25 || ballY4 >475) {
-    speedY = speedY*-1;
+    speedY4 = speedY4*-1;
   }
 
   if (ballX4 < 25 || ballX4 > 475) {
-    speedX = speedX *-1;
+    speedX4 = speedX4 *-1;
   }
 
 
