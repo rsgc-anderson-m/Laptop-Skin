@@ -1,6 +1,6 @@
 //variables
-int ballX = 150;
-int ballY = 250;
+int ballX = 150; //horrazontal
+int ballY = 250; // vertical
 
 // int ballX2 = 250;
 // int ballY2 = 250;
@@ -8,8 +8,8 @@ int ballY = 250;
 // int ballX3 = 350;
 // int ballY3 = 250;
 
-int ballD = 2;
-
+int speedY = 2; 
+int speedX = 4;
 
 
 void setup () {
@@ -17,16 +17,26 @@ void setup () {
   size (500, 500); 
   //colorMode
   colorMode (HSB, 360, 100, 100);
+  // Slow down the animation
+  //frameRate(1);
 }
 
 void draw () {
 
-  ballY = ballY +ballD;
-  
-  if (ballY < 25 || ballY >475){
-   ballD = ballD*-1;
+  ballY = ballY +speedY;
+  // println("Vertical position is: " + ballY);
+  // println("ballD is: " + speedY);
+
+
+  ballX = ballX + speedX;
+
+  println("Horizontal position is: " + ballX);
+  println("speedX is: " + speedX);
+
+  if (ballY < 25 || ballY >475) {
+    speedY = speedY*-1;
   }
-   
+
 
   background (#6797E8);
   noStroke();
