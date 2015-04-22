@@ -71,7 +71,7 @@ void draw () {
   if (ballX < 25 || ballX > width - 25) {
     speedX = speedX *-1;
   }
-  
+
   if (ballY2 < 25 || ballY2 > height - 25) {
     speedY2 = speedY2*-1;
   }
@@ -79,15 +79,15 @@ void draw () {
   if (ballX2 < 25 || ballX2 > width -25) {
     speedX2 = speedX2 *-1;
   }  
-  
+
   if (ballY3 < 25 || ballY3 > height - 25) {
     speedY3 = speedY3*-1;
   }
-  
+
   if (ballX3 < 25 || ballX3 > width - 25) {
     speedX3 = speedX3 *-1;
   }  
-  
+
   if (ballY4 < 25 || ballY4 > height - 25) {
     speedY4 = speedY4*-1;
   }
@@ -102,21 +102,40 @@ void draw () {
 
   //red ball
   //noStroke();
-  fill (255, 0, speedY *100); 
+  if (speedX < 0 || speedY < 0) {
+    fill(255, 102, 0);
+  } else {
+    fill (255, 0, 0);
+  }
   ellipse (ballX, ballY, 50, 50);
+
 
   //blue ball
   //noStroke();
-  fill (speedX2 * 100, 50, 255); 
+  if (speedX2 < 0 || speedY2 < 0) {
+    fill(52, 221, 221);
+  } else {
+    fill (0, 0, 255);
+  }
   ellipse (ballX2, ballY2, 50, 50);
+
 
   //green ball
   //noStroke();
-  fill (0, 255, 0); 
+  if (speedX3 < 0 || speedY3 < 0) {
+    fill(102, 51, 153);
+  } else {
+    fill (0, 255, 0);
+  }
   ellipse (ballX3, ballY3, 50, 50);
+
 
   //yellow ball
   //noStroke();
-  fill (254, 255, 41); 
+  if (speedX4 < 0 || speedY4 < 0) {
+    fill(255, 0, 128);
+  } else {
+    fill (254, 255, 41);
+  }
   ellipse (ballX4, ballY4, 50, 50);
 }
