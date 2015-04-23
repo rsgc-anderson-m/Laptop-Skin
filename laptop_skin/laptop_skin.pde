@@ -1,141 +1,149 @@
 //variables
 float ballX; //horizontal
 float ballY; // vertical
+float ball1Hue1 = 0; //colour
+float ball1Hue2 = 35;
+float ball1CurrentHue = ball1Hue1;
 
-float ballX2; 
-float ballY2;
+// float ballX2; 
+// float ballY2;
+// float ballHue2 = 300;
 
-float ballX3;
-float ballY3;
+// float ballX3;
+// float ballY3;
+// float ballHue3 = 300;
 
-float ballX4;
-float ballY4;
+// float ballX4;
+// float ballY4;
+// float ballHue4 = 300;
 
+// set initial speed
 float speedY = random (2, 3);
-float speedY2 = random (2, 3);
-float speedY3 = random (2, 3);
-float speedY4 = random (2, 3);
+// float speedY2 = random (2, 3);
+// float speedY3 = random (2, 3);
+// float speedY4 = random (2, 3);
 
 float speedX = random (2, 3);
-float speedX2 = random (2, 3);
-float speedX3 = random (2, 3);
-float speedX4 = random (2, 3);
+// float speedX2 = random (2, 3);
+// float speedX3 = random (2, 3);
+// float speedX4 = random (2, 3);
 
 
 void setup () {
   //canvas
   size (1280, 700); 
-  //colorMode
-  //colorMode (HSB, 360, 100, 100);
-  // Slow down the animation
-  //frameRate(1);
+  background(255);
+
+  // set to hsb
+  colorMode(HSB, 360, 100, 100);
 
   // Set the initial position of the balls
-  ballX = random(26, 474);
-  ballY = random(26, 474);
-  ballX2 = random(26, 474);
-  ballY2 = random(26, 474);
-  ballX3 = random(26, 474);
-  ballY3 = random(26, 474);
-  ballX4 = random(26, 474);
-  ballY4 = random(26, 474);
+  ballX  = random(25, width - 25);
+  ballY  = random(25, height -25);
+  // ballX2 = random(25, width - 25);
+  // ballY2 = random(25, height -25);
+  // ballX3 = random(25, width - 25);
+  // ballY3 = random(25, height -25);
+  // ballX4 = random(25, width - 25);
+  // ballY4 = random(25, height -25);
 }
 
 void draw () {
 
-  ballY = ballY +speedY;
-  // println("Vertical position is: " + ballY);
-  // println("ballD is: " + speedY);
 
 
+  // update position of ball
   ballX = ballX + speedX;
   ballY = ballY + speedY;
 
-  //println("Horizontal position is: " + ballX);
-  //println("speedX is: " + speedX);
-
-  ballY2 = ballY2 +speedY2;
-  ballY3 = ballY3 +speedY3;
-  ballY4 = ballY4 +speedY4;
-
-  ballX2 = ballX2 + speedX2;
-  ballX3 = ballX3 + speedX3;
-  ballX4 = ballX4 + speedX4;
 
 
+  // ballY2 = ballY2 +speedY2;
+  // ballY3 = ballY3 +speedY3;
+  // ballY4 = ballY4 +speedY4;
 
+  // ballX2 = ballX2 + speedX2;
+  // ballX3 = ballX3 + speedX3;
+  // ballX4 = ballX4 + speedX4;
+
+
+  // detects when ball 1 hits the top or bottom border
   if (ballY < 25 || ballY > height - 25) {
+    //change direction
     speedY = speedY*-1;
+
+    // toggle between hues
+    if ( ball1CurrentHue==ball1Hue1) {
+      ball1CurrentHue=ball1Hue2;
+    } else { 
+      ball1CurrentHue= ball1Hue1;
+    }
   }
 
+  // detects when ball 1 hits the left or right border
   if (ballX < 25 || ballX > width - 25) {
+    // change direction
     speedX = speedX *-1;
+    
+    // toggle between hues
+    if ( ball1CurrentHue==ball1Hue1) {
+      ball1CurrentHue=ball1Hue2;
+    } else { 
+      ball1CurrentHue= ball1Hue1;
+    }
   }
 
-  if (ballY2 < 25 || ballY2 > height - 25) {
-    speedY2 = speedY2*-1;
-  }
+  // detects when ball 2 hits the top or bottom border
+  // if (ballY2 < 25 || ballY2 > height - 25) {
+  //   speedY2 = speedY2*-1;
+  //   ballHue2=100;
+  // }
 
-  if (ballX2 < 25 || ballX2 > width -25) {
-    speedX2 = speedX2 *-1;
-  }  
+  // // detects when ball 2 hits the left or right border
+  // if (ballX2 < 25 || ballX2 > width -25) {
+  //   speedX2 = speedX2 *-1;
+  // }
 
-  if (ballY3 < 25 || ballY3 > height - 25) {
-    speedY3 = speedY3*-1;
-  }
+  // // detects when ball 3 hits the top or bottom border
+  // if (ballY3 < 25 || ballY3 > height - 25) {
+  //   speedY3 = speedY3*-1;
+  //   ballHue3=120;
+  // }
 
-  if (ballX3 < 25 || ballX3 > width - 25) {
-    speedX3 = speedX3 *-1;
-  }  
+  // // detects when ball 3 hits the left or right border
+  // if (ballX3 < 25 || ballX3 > width - 25) {
+  //   speedX3 = speedX3 *-1;
+  // }
 
-  if (ballY4 < 25 || ballY4 > height - 25) {
-    speedY4 = speedY4*-1;
-  }
+  // // detects when ball 4 hits the top or bottom border
+  // if (ballY4 < 25 || ballY4 > height - 25) {
+  //   speedY4 = speedY4*-1;
+  //   ballHue4=250;
+  // }
 
-  if (ballX4 < 25 || ballX4 > width - 25) {
-    speedX4 = speedX4 *-1;
-  }
+  // // detects when ball 4 hits the left of right border
+  // if (ballX4 < 25 || ballX4 > width - 25) {
+  //   speedX4 = speedX4 *-1;
+  // }
 
 
-  //background (255);
-
-
-  //red ball
-  //noStroke();
-  if (speedX < 0 || speedY < 0) {
-    fill(255, 102, 0);
-  } else {
-    fill (255, 0, 0);
-  }
+  //purple ball
+  fill(ball1CurrentHue, 100, 100);
   ellipse (ballX, ballY, 50, 50);
 
 
-  //blue ball
-  //noStroke();
-  if (speedX2 < 0 || speedY2 < 0) {
-    fill(52, 221, 221);
-  } else {
-    fill (0, 0, 255);
-  }
-  ellipse (ballX2, ballY2, 50, 50);
+  // //blue ball
+  // fill(ballHue2, 100, 100);
+  // ellipse (ballX2, ballY2, 50, 50);
 
 
-  //green ball
-  //noStroke();
-  if (speedX3 < 0 || speedY3 < 0) {
-    fill(102, 51, 153);
-  } else {
-    fill (0, 255, 0);
-  }
-  ellipse (ballX3, ballY3, 50, 50);
+  // //green ball
+  // fill(ballHue3, 100, 100);
+  // ellipse (ballX3, ballY3, 50, 50);
 
 
-  //yellow ball
-  //noStroke();
-  if (speedX4 < 0 || speedY4 < 0) {
-    fill(255, 0, 128);
-  } else {
-    fill (254, 255, 41);
-  }
-  ellipse (ballX4, ballY4, 50, 50);
+  // //yellow ball
+  // fill(ballHue4, 100, 100);
+  // ellipse (ballX4, ballY4, 50, 50);
 }
+// 
