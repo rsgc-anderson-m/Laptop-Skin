@@ -76,6 +76,49 @@ void setup () {
 
 void draw () {
 
+
+  float a = (ballX2 - ballX1);
+  float b = (ballY2 - ballY1);
+  // float c = (ballX3 - ballX1);
+  // float d = (ballY3 - ballY1);
+  // float e = (ballX4 - ballX1);
+  // float f = (ballY4 - ballY1);
+  // float g = (ballX3 - ballX2);
+  // float h = (ballY3 - ballY2);
+  // float i = (ballY4 - ballY2);
+  // float j = (ballY4 - ballY2);
+  // float k = (ballX4 - ballX3);
+  // float l = (ballY4 - ballY3);
+
+  float distance = sqrt(a*a+b*b);
+
+  if (distance <= (25+25))
+  {
+    speedX1 *= -1;
+    speedY1 *= -1;
+  }
+
+  if (distance <= (25+25))
+  {
+    speedX2 *= -1;
+    speedY2 *= -1;
+  }
+
+  // if (distance <= (25+25))
+  // {
+  //   speedX3 *= -1;
+  //   speedY3 *= -1;
+  // }
+
+  // if (distance <= (25+25))
+  // {
+  //   speedX4 *= -1;
+  //   speedY4 *= -1;
+  // }
+
+
+  //println("the distance between ball1 and ball2 is " + distance);
+
   //update position of ball1
   ballX1 = ballX1 + speedX1;
   ballY1 = ballY1 + speedY1;
@@ -210,22 +253,22 @@ void draw () {
 
 
   //ball1
-  noStroke();
+  //noStroke();
   fill(ball1CurrentHue, 100, 100);
   ellipse(ballX1, ballY1, 50, 50);
 
   //ball2
-  noStroke();
+  //noStroke();
   fill(ball2CurrentHue, 100, 100);
   ellipse(ballX2, ballY2, 50, 50);
 
-  //ball3
-  noStroke();
-  fill(ball3CurrentHue, 100, 100);
-  ellipse(ballX3, ballY3, 50, 50);
+  // //ball3
+  // //noStroke();
+  // fill(ball3CurrentHue, 100, 100);
+  // ellipse(ballX3, ballY3, 50, 50);
 
-  //ball4
-  noStroke();
-  fill(ball4CurrentHue, 100, 100);
-  ellipse(ballX4, ballY4, 50, 50);
+  // //ball4
+  // //noStroke();
+  // fill(ball4CurrentHue, 100, 100);
+  // ellipse(ballX4, ballY4, 50, 50);
 }
