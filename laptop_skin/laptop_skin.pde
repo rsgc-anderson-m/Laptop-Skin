@@ -1,12 +1,12 @@
-// Matt Anderson
-// April 24, 2015
+//Matt Anderson
+//May 12, 2015
 
 
 //variables
 float ballX1; //horizontal position
 float ballY1; //vertical position
-float ball1Hue1 = random(0, 360); //random colour
-float ball1Hue2 = random(0, 360); //random colour
+float ball1Hue1 = (0) ; //colour
+float ball1Hue2 = (35); //colour
 float ball1CurrentHue= ball1Hue1; //starting colour
 
 //set initial speed for ball1
@@ -16,8 +16,8 @@ float speedY1 = random(2, 3);
 
 float ballX2; //horizontal position
 float ballY2; //vertical position
-float ball2Hue1 = random(0, 360); //random colour
-float ball2Hue2 = random(0, 360); //random colour
+float ball2Hue1 = (225); //colour
+float ball2Hue2 = (180); //colour
 float ball2CurrentHue= ball2Hue1; //starting colour
 
 //set initial speed for ball2
@@ -27,8 +27,8 @@ float speedY2 = random(2, 3);
 
 float ballX3; //horizontal position
 float ballY3; //vertical position
-float ball3Hue1 = random(0, 360); //random colour
-float ball3Hue2 = random(0, 360); //random colour
+float ball3Hue1 = (60) ; //colour
+float ball3Hue2 = (100); //colour
 float ball3CurrentHue= ball3Hue1; //starting colour
 
 //set initial speed for ball3
@@ -38,8 +38,8 @@ float speedY3 = random(2, 3);
 
 float ballX4; //horizontal position
 float ballY4; //vertical position
-float ball4Hue1 = random(0, 360); //random colour
-float ball4Hue2 = random(0, 360); //random colour
+float ball4Hue1 = (300); //colour
+float ball4Hue2 = (270); //colour
 float ball4CurrentHue= ball4Hue1; //starting colour
 
 //set initial speed for ball4
@@ -76,48 +76,110 @@ void setup () {
 
 void draw () {
 
-
-  float a = (ballX2 - ballX1);
+  //variables
+  float a = (ballX2 - ballX1); 
   float b = (ballY2 - ballY1);
-  // float c = (ballX3 - ballX1);
-  // float d = (ballY3 - ballY1);
-  // float e = (ballX4 - ballX1);
-  // float f = (ballY4 - ballY1);
-  // float g = (ballX3 - ballX2);
-  // float h = (ballY3 - ballY2);
-  // float i = (ballY4 - ballY2);
-  // float j = (ballY4 - ballY2);
-  // float k = (ballX4 - ballX3);
-  // float l = (ballY4 - ballY3);
+  float distance1 = sqrt(a*a+b*b);
 
-  float distance = sqrt(a*a+b*b);
+  float c = (ballX3 - ballX1);
+  float d = (ballY3 - ballY1);
+  float distance2 = sqrt(c*c+d*d);
 
-  if (distance <= (25+25))
+  float e = (ballX4 - ballX1);
+  float f = (ballY4 - ballY1);
+  float distance3 = sqrt(e*e+f*f);
+
+  float g = (ballX3 - ballX2);
+  float h = (ballY3 - ballY2);
+  float distance4 = sqrt(g*g+h*h);
+
+  float i = (ballX4 - ballX2);
+  float j = (ballY4 - ballY2);
+  float distance5 = sqrt(i*i+j*j);
+
+  float k = (ballX4 - ballX3);
+  float l = (ballY4 - ballY3);
+  float distance6 = sqrt(k*k+l*l);
+
+
+  //detects collision between ball1 and ball2
+  if (distance1 <= (25+25))
   {
     speedX1 *= -1;
     speedY1 *= -1;
   }
 
-  if (distance <= (25+25))
+  if (distance1 <= (25+25))
   {
     speedX2 *= -1;
     speedY2 *= -1;
   }
 
-  // if (distance <= (25+25))
-  // {
-  //   speedX3 *= -1;
-  //   speedY3 *= -1;
-  // }
+  //detects collision between ball1 and ball3
+  if (distance2 <= (25+25))
+  {
+    speedX1 *= -1;
+    speedY1 *= -1;
+  }
 
-  // if (distance <= (25+25))
-  // {
-  //   speedX4 *= -1;
-  //   speedY4 *= -1;
-  // }
+  if (distance2 <= (25+25))
+  {
+    speedX3 *= -1;
+    speedY3 *= -1;
+  }
 
+  //detects collision between ball1 and ball4
+  if (distance3 <= (25+25))
+  {
+    speedX1 *= -1;
+    speedY1 *= -1;
+  }
 
-  //println("the distance between ball1 and ball2 is " + distance);
+  if (distance3 <= (25+25))
+  {
+    speedX4 *= -1;
+    speedY4 *= -1;
+  }
+
+  //detects collision between ball2 and ball3
+  if (distance4 <= (25+25))
+  {
+    speedX2 *= -1;
+    speedY2 *= -1;
+  }
+  
+  if (distance4 <= (25+25))
+  {
+    speedX3 *= -1;
+    speedY3 *= -1;
+  }
+
+  //detects collision between ball2 and ball4
+  if (distance5 <= (25+25))
+  {
+    speedX2 *= -1;
+    speedY2 *= -1;
+  }
+
+  if (distance5 <= (25+25))
+  {
+    speedX4 *= -1;
+    speedY4 *= -1;
+  }
+
+  //detects collision between ball3 and ball4
+  if (distance6 <= (25+25))
+  {
+    speedX3 *= -1;
+    speedY3 *= -1;
+  }
+
+  if (distance6 <= (25+25))
+  {
+    speedX4 *= -1;
+    speedY4 *= -1;
+  }
+
 
   //update position of ball1
   ballX1 = ballX1 + speedX1;
@@ -164,8 +226,7 @@ void draw () {
     }
   }
 
-
-  // detects when ball2 hits the left or right border
+  //detects when ball2 hits the left or right border
   if (ballX2 < 25 || ballX2 > width -25) {
 
     //change direction
@@ -179,7 +240,7 @@ void draw () {
     }
   }
 
-  // detects when ball2 hits the top or bottom border
+  //detects when ball2 hits the top or bottom border
   if (ballY2 < 25 || ballY2 > height - 25) {
 
     //change direction
@@ -193,8 +254,7 @@ void draw () {
     }
   }
 
-
-  // detects when ball3 hits the left or right border
+  //detects when ball3 hits the left or right border
   if (ballX3 < 25 || ballX3 > width - 25) {
 
     //change direction
@@ -208,7 +268,7 @@ void draw () {
     }
   }
 
-  // detects when ball3 hits the top or bottom border
+  //detects when ball3 hits the top or bottom border
   if (ballY3 < 25 || ballY3 > height - 25) {
 
     //change direction
@@ -222,8 +282,7 @@ void draw () {
     }
   }
 
-
-  // detects when ball4 hits the left of right border
+  //detects when ball4 hits the left of right border
   if (ballX4 < 25 || ballX4 > width - 25) {
 
     //change direction
@@ -237,7 +296,7 @@ void draw () {
     }
   }
 
-  // detects when ball4 hits the top or bottom border
+  //detects when ball4 hits the top or bottom border
   if (ballY4 < 25 || ballY4 > height - 25) {
 
     //change direction
@@ -262,13 +321,13 @@ void draw () {
   fill(ball2CurrentHue, 100, 100);
   ellipse(ballX2, ballY2, 50, 50);
 
-  // //ball3
-  // //noStroke();
-  // fill(ball3CurrentHue, 100, 100);
-  // ellipse(ballX3, ballY3, 50, 50);
+  //ball3
+  //noStroke();
+  fill(ball3CurrentHue, 100, 100);
+  ellipse(ballX3, ballY3, 50, 50);
 
-  // //ball4
-  // //noStroke();
-  // fill(ball4CurrentHue, 100, 100);
-  // ellipse(ballX4, ballY4, 50, 50);
+  //ball4
+  //noStroke();
+  fill(ball4CurrentHue, 100, 100);
+  ellipse(ballX4, ballY4, 50, 50);
 }
